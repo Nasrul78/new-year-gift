@@ -1,6 +1,6 @@
 const Welcome = () => {
   const handleClick = () => {
-    fetch("api/click", {
+    fetch("api/twilio", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
