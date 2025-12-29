@@ -13,8 +13,8 @@ const Welcome = () => {
 
   return (
     <>
-      <h1>Hi, My Dearest Jenii..</h1>
-      <p>There's something I've been wanting to tell you recently..</p>
+      <h1>Welcome, My Dearest Jenii..</h1>
+      <p></p>
       <button onClick={handleClick}>Click me!</button>
     </>
   )
