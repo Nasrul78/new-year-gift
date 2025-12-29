@@ -11,14 +11,14 @@ const handler = async (req, res) => {
 
   const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
 
-  await client.messages
-    .create({
-      from: process.env.TWILIO_FROM,
-      to: process.env.TWILIO_TO,
-      contentSid: process.env.TWILIO_CONTENT_SID,
-      contentVariables: `{"1":"click","2":"${time}"}`,
-    })
-    .then((message) => console.log(message.sid))
+  const message = await client.messages.create({
+    contentSid: process.env.TWILIO_CONTENT_SID,
+    contentVariables: JSON.stringify({ 1: "Click", 2: time }),
+    from: process.env.TWILIO_FROM,
+    to: process.env.TWILIO_TO,
+  })
+
+  console.log(message.sid)
 
   res.status(200).end()
 }
