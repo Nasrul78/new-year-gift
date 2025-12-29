@@ -11,14 +11,11 @@ const handler = async (req, res) => {
 
   const time = new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
 
-  const message = await client.messages.create({
-    contentSid: process.env.TWILIO_CONTENT_SID,
-    contentVariables: JSON.stringify({ 1: "Click", 2: time }),
-    from: process.env.TWILIO_FROM,
-    to: process.env.TWILIO_TO,
+  await client.messages.create({
+    from: "whatsapp:+14155238886",
+    to: "whatsapp:+6285711151209",
+    body: `Jenii clicked *${req.body.action}* at *${time}*`,
   })
-
-  console.log(message.sid)
 
   res.status(200).end()
 }
